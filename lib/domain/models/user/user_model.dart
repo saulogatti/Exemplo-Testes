@@ -1,4 +1,4 @@
-import 'package:testenovo/data/entry/user_entry/user_entry.dart';
+import 'package:testenovo/data_source/entry/user_entry/user_entry.dart';
 
 class UserModel extends UserEntry {
   UserModel({

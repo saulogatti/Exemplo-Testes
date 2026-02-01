@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:meta/meta.dart';
-import 'package:testenovo/data/entry/user_entry/list_users.dart';
-import 'package:testenovo/data/remote/http_impl.dart';
-import 'package:testenovo/data/remote/method/http_method.dart';
+import 'package:testenovo/data_source/entry/user_entry/list_users.dart';
+import 'package:testenovo/data_source/remote/http_impl.dart';
+import 'package:testenovo/data_source/remote/method/http_method.dart';
 import 'package:testenovo/utils/data_result.dart';
 
 abstract class Api<R, T> {

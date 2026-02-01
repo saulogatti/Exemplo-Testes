@@ -6,7 +6,7 @@ class ListAlbunsScreen extends StatefulWidget {
   const ListAlbunsScreen({super.key});
 
   @override
-  _ListAlbunsScreenState createState() => _ListAlbunsScreenState();
+  State<ListAlbunsScreen> createState() => _ListAlbunsScreenState();
 }
 
 class _ListAlbunsScreenState extends State<ListAlbunsScreen> {

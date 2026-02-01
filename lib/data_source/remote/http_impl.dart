@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:testenovo/data/remote/method/http_method.dart';
+import 'package:testenovo/data_source/remote/method/http_method.dart';
 import 'package:testenovo/utils/data_result.dart';
 
 /// Implementa a classe responsável por fazer requisições HTTP usando o Dio.

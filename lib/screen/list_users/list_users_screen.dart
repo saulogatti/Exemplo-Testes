@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:testenovo/di/app_injection.dart';
 import 'package:testenovo/screen/list_users/bloc/list_users_bloc.dart';
 import 'package:testenovo/screen/list_users/user_card.dart';
+import 'package:testenovo/screen/repository/i_user_repository.dart';
 
 @RoutePage()
 class ListUsersScreen extends StatefulWidget implements AutoRouteWrapper {
@@ -15,7 +17,7 @@ class ListUsersScreen extends StatefulWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        return ListUsersBloc();
+        return ListUsersBloc(getIt<IUserRepository>());
       },
       child: this,
     );
