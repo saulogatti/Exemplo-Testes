@@ -3,6 +3,9 @@ import 'package:testenovo/domain/models/user/user_model.dart';
 import 'package:testenovo/domain/repository/i_user_repository.dart';
 import 'package:testenovo/utils/data_result.dart';
 
+/// Implementação do repositório de usuários.
+/// Ele utiliza uma fonte de dados para buscar e salvar informações de usuários.
+///
 class UserRepository implements IUserRepository {
   final IUserDataSource _dataSource;
   UserRepository(this._dataSource);

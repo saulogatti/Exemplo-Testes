@@ -1,17 +1,24 @@
 import 'package:get_it/get_it.dart';
+import 'package:testenovo/data_source/remote/http_impl.dart';
+import 'package:testenovo/data_source/source/i_user_data_source.dart';
 import 'package:testenovo/data_source/source/user_data_source.dart';
 import 'package:testenovo/data_source/user_repository.dart';
-import 'package:testenovo/domain/use_case/user_actions.dart';
 import 'package:testenovo/domain/repository/i_user_repository.dart';
+import 'package:testenovo/domain/use_case/user_actions.dart';
 import 'package:testenovo/screen/route/app_route.dart';
 
 final appRoute = getIt<AppRoute>();
-final getIt = GetIt.instance;
+final GetIt getIt = GetIt.instance;
+
+/// Configuração de injeção de dependências da aplicação.
 void setupDependencies() {
-  // Register your dependencies here
   getIt.registerSingleton<AppRoute>(AppRoute());
+
+  getIt.registerLazySingleton<IUserDataSource>(
+    () => UserDataSource(HttpImpl('https://dummyjson.com')),
+  );
   getIt.registerLazySingleton<IUserRepository>(
-    () => UserRepository(UserDataSource()),
+    () => UserRepository(getIt<IUserDataSource>()),
   );
   getIt.registerLazySingleton<UserActions>(
     () => UserActions(getIt<IUserRepository>()),

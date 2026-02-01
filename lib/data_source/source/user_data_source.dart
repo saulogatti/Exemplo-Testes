@@ -8,18 +8,18 @@ import 'package:testenovo/utils/data_result.dart';
 /// Pode buscar dados de uma API remota, banco de dados local, etc.
 /// Atualmente, ela busca todos os usuários com nomes e emails.
 class UserDataSource implements IUserDataSource {
+  final HttpImpl _httpClient;
+  UserDataSource(this._httpClient);
   @override
   Future<DataResult<ListUsers, String>> getAllUsers() async {
     // Futuramente aqui podemos adicionar mais lógica, como cache, manipulação de erros, etc.
     try {
-      // TODO Talvez o objeto HttpImpl possa ser injetado via construtor para facilitar testes.
-      final http = HttpImpl('https://dummyjson.com');
       final api = ApiUserList(
         limit: 100,
         skip: 0,
         selects: ['firstName', 'email'],
       );
-      final result = await api.call(http);
+      final result = await api.call(_httpClient);
       return result;
     } catch (e) {
       return DataResult.failure('Erro ao buscar nomes de usuários: $e');
