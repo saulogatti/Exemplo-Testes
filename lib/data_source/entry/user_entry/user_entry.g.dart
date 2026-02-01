@@ -7,13 +7,13 @@ part of 'user_entry.dart';
 // **************************************************************************
 
 UserEntry _$UserEntryFromJson(Map<String, dynamic> json) => UserEntry(
-  id: (json['id'] as num?)?.toInt(),
-  firstName: json['firstName'] as String?,
+  id: (json['id'] as num?)?.toInt() ?? 0,
+  firstName: json['firstName'] as String? ?? '',
   lastName: json['lastName'] as String?,
   maidenName: json['maidenName'] as String?,
   age: (json['age'] as num?)?.toInt(),
   gender: json['gender'] as String?,
-  email: json['email'] as String?,
+  email: json['email'] as String? ?? '',
   phone: json['phone'] as String?,
   username: json['username'] as String?,
   password: json['password'] as String?,
@@ -50,11 +50,11 @@ UserEntry _$UserEntryFromJson(Map<String, dynamic> json) => UserEntry(
 Map<String, dynamic> _$UserEntryToJson(UserEntry instance) => <String, dynamic>{
   'id': instance.id,
   'firstName': instance.firstName,
+  'email': instance.email,
   'lastName': instance.lastName,
   'maidenName': instance.maidenName,
   'age': instance.age,
   'gender': instance.gender,
-  'email': instance.email,
   'phone': instance.phone,
   'username': instance.username,
   'password': instance.password,

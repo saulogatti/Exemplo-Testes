@@ -25,6 +25,15 @@ class HttpImpl {
         'O cabeçalho Authorization é gerenciado internamente e não deve ser fornecido externamente por API.',
       );
     }
+    await Future.delayed(Duration(seconds: 3));
+    final options = Options(
+      headers: {
+        'Content-Type': method.contentType.value,
+        if (method.headers != null) ...method.headers!,
+        // Adicione aqui o cabeçalho Authorization, se necessário
+        // 'Authorization': 'Bearer your_token_here',
+      },
+    );
     switch (method) {
       case Get(:final queryParameters):
         try {
@@ -41,7 +50,7 @@ class HttpImpl {
           final response = await _dio.post<T>(
             method.path,
             data: body,
-            options: Options(headers: {'Content-Type': 'application/json'}),
+            options: options,
           );
           return Success(response.data as T);
         } catch (e) {

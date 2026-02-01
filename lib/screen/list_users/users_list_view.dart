@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testenovo/di/app_injection.dart';
 import 'package:testenovo/domain/use_case/user_actions.dart';
+import 'package:testenovo/screen/common/error/custom_error_widget.dart';
 import 'package:testenovo/screen/list_users/bloc/list_users_bloc.dart';
 import 'package:testenovo/screen/list_users/card_add_user.dart';
 import 'package:testenovo/screen/list_users/user_card.dart';
 
 @RoutePage()
-class ListUsersScreen extends StatefulWidget implements AutoRouteWrapper {
-  const ListUsersScreen({super.key});
+class UsersListView extends StatefulWidget implements AutoRouteWrapper {
+  const UsersListView({super.key});
 
   @override
-  State<ListUsersScreen> createState() => _ListUsersScreenState();
+  State<UsersListView> createState() => _UsersListViewState();
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -25,7 +26,7 @@ class ListUsersScreen extends StatefulWidget implements AutoRouteWrapper {
   }
 }
 
-class _ListUsersScreenState extends State<ListUsersScreen> {
+class _UsersListViewState extends State<UsersListView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ListUsersBloc, ListUsersState>(
@@ -48,15 +49,20 @@ class _ListUsersScreenState extends State<ListUsersScreen> {
                   itemBuilder: (context, index) {
                     final user = list[index];
                     return UserCard(
-                      firstName: user.firstName!,
-                      email: user.email!,
+                      firstName: user.firstName,
+                      email: user.email,
                     );
                   },
                 ),
               ],
             );
           case ListUsersError():
-            return Center(child: Text(state.message));
+            return CustomErrorWidget(
+              message: state.message,
+              onRetry: () {
+                context.read<ListUsersBloc>().fetchUsers();
+              },
+            );
           // You can handle different states here
           default:
         }

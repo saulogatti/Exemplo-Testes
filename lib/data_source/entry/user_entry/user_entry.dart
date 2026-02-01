@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:testenovo/domain/models/user/user_model.dart';
 
 import 'address.dart';
 import 'bank.dart';
@@ -9,14 +10,12 @@ import 'hair.dart';
 part 'user_entry.g.dart';
 
 @JsonSerializable()
-class UserEntry {
-  int? id;
-  String? firstName;
+class UserEntry extends UserModel {
   String? lastName;
   String? maidenName;
   int? age;
   String? gender;
-  String? email;
+
   String? phone;
   String? username;
   String? password;
@@ -39,13 +38,13 @@ class UserEntry {
   Crypto? crypto;
   String? role;
   UserEntry({
-    this.id,
-    this.firstName,
+    super.id = 0,
+    super.firstName = '',
     this.lastName,
     this.maidenName,
     this.age,
     this.gender,
-    this.email,
+    super.email = '',
     this.phone,
     this.username,
     this.password,

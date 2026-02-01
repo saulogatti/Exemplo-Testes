@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+
+class ProductView extends StatefulWidget {
+  const ProductView({super.key});
+
+  @override
+  State<ProductView> createState() => _ProductViewState();
+}
+class _ProductViewState extends State<ProductView> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [Center(child: Text('This is the Product View!'))],
+    );
+  }
+}

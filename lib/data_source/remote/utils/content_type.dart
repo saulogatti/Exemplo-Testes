@@ -8,4 +8,3 @@ enum ContentType {
 
   const ContentType(this.value);
 }
-

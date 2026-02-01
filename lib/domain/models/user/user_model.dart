@@ -1,11 +1,8 @@
-import 'package:testenovo/data_source/entry/user_entry/user_entry.dart';
-
-class UserModel extends UserEntry {
-  UserModel({
-    required super.id,
-    required super.firstName,
-    required super.email,
-  });
+class UserModel {
+  int id;
+  String firstName;
+  String email;
+  UserModel({required this.id, required this.firstName, required this.email});
 
   @override
   String toString() {

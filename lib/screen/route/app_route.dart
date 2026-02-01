@@ -9,9 +9,9 @@ class AppRoute extends RootStackRouter {
       page: HomeRoute.page,
       initial: true,
       children: [
-        AutoRoute(page: ListUsersRoute.page, title: (context, data) => 'Users'),
+        AutoRoute(page: UsersListRoute.page, title: (context, data) => 'Users'),
         AutoRoute(
-          page: ListAlbunsRoute.page,
+          page: ProductListRoute.page,
           title: (context, data) => 'Albuns',
         ),
       ],

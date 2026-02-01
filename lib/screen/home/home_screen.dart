@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: [ListUsersRoute(), ListAlbunsRoute()],
+      routes: [UsersListRoute(), ProductListRoute()],
       appBarBuilder: (context, tabsRouter) {
         final stringTitle = tabsRouter.current.title.call(context);
         return AppBar(
@@ -31,7 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Users'),
-            BottomNavigationBarItem(icon: Icon(Icons.album), label: 'Albuns'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Products',
+            ),
           ],
         );
       },

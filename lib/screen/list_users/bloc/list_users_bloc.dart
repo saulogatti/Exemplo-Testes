@@ -2,9 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testenovo/domain/models/user/user_model.dart';
 import 'package:testenovo/domain/use_case/user_actions.dart';
 import 'package:testenovo/utils/data_result.dart';
-
+/// Gerencia o estado da lista de usuários.
 class ListUsersBloc extends Cubit<ListUsersState> {
+  /// Ações relacionadas aos usuários.
   final UserActions _userActions;
+  /// Construtor que inicializa o estado inicial.
   ListUsersBloc(this._userActions) : super(ListUsersInitial());
   Future<void> fetchUsers() async {
     emit(ListUsersLoading());
@@ -21,7 +23,7 @@ class ListUsersBloc extends Cubit<ListUsersState> {
     emit(ListUsersLoading());
     final result = await _userActions.save(name);
     switch (result) {
-      case Success(:final data):
+      case Success():
         await fetchUsers();
       case Failure(:final error):
         emit(ListUsersError(error));

@@ -7,5 +7,8 @@ import 'package:testenovo/utils/data_result.dart';
 abstract interface class IUserDataSource {
   Future<DataResult<ListUsers, String>> getAllUsers();
   Future<DataResult<UserEntry, String>> getUserById(int userId);
-  Future<DataResult<UserEntry, String>> saveUserName(int userId, String userName);
+  Future<DataResult<UserEntry, String>> saveUserName(
+    int userId,
+    String userName,
+  );
 }
