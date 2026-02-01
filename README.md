@@ -1,6 +1,6 @@
 # testenovo
 
-Teste em Flutter para novo sdk
+Teste em Flutter para novo sdk. Estudo de arquitetura limpa com injeção de dependências, deixar de uma forma mais simples e modular.
 
 ## Arquitetura do aplicativo
 
@@ -17,11 +17,11 @@ facilitar a evolução do app.
 	- Arquivo: `lib/di/app_injection.dart`
 
 - **Domínio/Core**: modelos e contratos da aplicação.
-	- Pasta: `lib/core/`
-	- Subpastas: `models/`, `repository/`
+	- Pasta: `lib/domain/`
+	- Subpastas: `models/`, `repository/`, `data_repository/`
 
-- **Dados (data)**: implementação de acesso a dados e fontes.
-	- Pasta: `lib/data/`
+- **Dados (dataSources)**: implementação de acesso a dados e fontes.
+	- Pasta: `lib/data_source/`
 	- Subpastas: `entry/`, `remote/`, `source/`
 
 - **Utilitários**: helpers e classes de suporte.
@@ -32,7 +32,7 @@ facilitar a evolução do app.
 
 1. A **UI** dispara ações (ex.: carregar usuários).
 2. A **DI** fornece a implementação correta de **repositórios**.
-3. O **repositório** consulta a camada de **dados** (remoto/local).
+3. O **repositório** consulta a camada de **dados** (remoto/source/entry).
 4. O resultado é convertido em **modelos** e devolvido para a **UI**.
 
 ### Diagrama (simplificado)

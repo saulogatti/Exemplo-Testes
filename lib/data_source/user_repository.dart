@@ -1,10 +1,10 @@
-import 'package:testenovo/domain/data_repository/i_data_repository.dart';
+import 'package:testenovo/data_source/source/i_user_data_source.dart';
 import 'package:testenovo/domain/models/user/user_model.dart';
-import 'package:testenovo/screen/repository/i_user_repository.dart';
+import 'package:testenovo/domain/repository/i_user_repository.dart';
 import 'package:testenovo/utils/data_result.dart';
 
 class UserRepository implements IUserRepository {
-  final IUserDataRepository _dataSource;
+  final IUserDataSource _dataSource;
   UserRepository(this._dataSource);
   @override
   Future<List<UserModel>> getAllUsers() async {
