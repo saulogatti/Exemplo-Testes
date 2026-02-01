@@ -1,11 +1,16 @@
-import 'package:testenovo/data_source/entry/product_entry/product_entry/product_entry.dart';
+class ProductModel {
+  int id;
+  int stock;
+  List<String>? images;
 
-class ProductModel extends ProductEntry {
+  String? description;
+
+  double price;
   ProductModel({
-    required super.id,
-    required super.images,
-    required super.description,
-    required super.price,
-    required super.stock,
+    required this.id,
+    this.images,
+    this.description,
+    required this.price,
+    required this.stock,
   });
 }

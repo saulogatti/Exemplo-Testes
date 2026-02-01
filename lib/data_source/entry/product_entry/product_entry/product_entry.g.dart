@@ -7,14 +7,14 @@ part of 'product_entry.dart';
 // **************************************************************************
 
 ProductEntry _$ProductEntryFromJson(Map<String, dynamic> json) => ProductEntry(
-  id: (json['id'] as num?)?.toInt(),
+  id: (json['id'] as num?)?.toInt() ?? 0,
   title: json['title'] as String?,
   description: json['description'] as String?,
   category: json['category'] as String?,
-  price: (json['price'] as num?)?.toDouble(),
+  price: (json['price'] as num?)?.toDouble() ?? 0.0,
   discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
   rating: (json['rating'] as num?)?.toDouble(),
-  stock: (json['stock'] as num?)?.toInt(),
+  stock: (json['stock'] as num?)?.toInt() ?? 0,
   tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
   brand: json['brand'] as String?,
   sku: json['sku'] as String?,
@@ -40,13 +40,14 @@ ProductEntry _$ProductEntryFromJson(Map<String, dynamic> json) => ProductEntry(
 Map<String, dynamic> _$ProductEntryToJson(ProductEntry instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'stock': instance.stock,
+      'images': instance.images,
       'description': instance.description,
-      'category': instance.category,
       'price': instance.price,
+      'title': instance.title,
+      'category': instance.category,
       'discountPercentage': instance.discountPercentage,
       'rating': instance.rating,
-      'stock': instance.stock,
       'tags': instance.tags,
       'brand': instance.brand,
       'sku': instance.sku,
@@ -59,6 +60,5 @@ Map<String, dynamic> _$ProductEntryToJson(ProductEntry instance) =>
       'returnPolicy': instance.returnPolicy,
       'minimumOrderQuantity': instance.minimumOrderQuantity,
       'meta': instance.meta,
-      'images': instance.images,
       'thumbnail': instance.thumbnail,
     };
