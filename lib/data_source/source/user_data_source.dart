@@ -1,5 +1,6 @@
 import 'package:testenovo/data_source/entry/user_entry/list_users.dart';
 import 'package:testenovo/data_source/entry/user_entry/user_entry.dart';
+import 'package:testenovo/data_source/remote/api/user/api_add_user.dart';
 import 'package:testenovo/data_source/remote/api/user/api_user.dart';
 import 'package:testenovo/data_source/remote/api/user/api_user_list.dart';
 import 'package:testenovo/data_source/remote/http_impl.dart';
@@ -35,8 +36,14 @@ class UserDataSource implements IUserDataSource {
   }
 
   @override
-  Future<void> saveUserName(int userId, String userName) {
-    // TODO: implement saveUserName
-    throw UnimplementedError();
+  Future<DataResult<UserEntry, String>> saveUserName(
+    int userId,
+    String userName,
+  ) {
+    final api = ApiAddUser(userName, userId.toString());
+    return api.call(_httpClient).then((result) {
+      // Aqui você pode manipular o resultado se necessário
+      return result;
+    });
   }
 }

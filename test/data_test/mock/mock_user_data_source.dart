@@ -21,9 +21,14 @@ class MockErrorUserDataSource implements IUserDataSource {
   }
 
   @override
-  Future<void> saveUserName(int userId, String userName) {
-    // TODO: implement saveUserName
-    throw UnimplementedError();
+  Future<DataResult<UserEntry, String>> saveUserName(
+    int userId,
+    String userName,
+  ) {
+    // Simula um erro ao salvar o nome do usuário
+    return Future.value(
+      Failure<UserEntry, String>('Erro ao salvar nome de usuário'),
+    );
   }
 }
 
@@ -45,9 +50,14 @@ class MockUserDataSource implements IUserDataSource {
   }
 
   @override
-  Future<void> saveUserName(int userId, String userName) {
-    // TODO: implement saveUserName
-    throw UnimplementedError();
+  Future<DataResult<UserEntry, String>> saveUserName(
+    int userId,
+    String userName,
+  ) {
+    // Simula um erro ao salvar o nome do usuário
+    return Future.value(
+      Success(UserEntry(id: userId, firstName: userName, email: '')),
+    );
   }
 
   // Implemente métodos mockados conforme necessário para os testes

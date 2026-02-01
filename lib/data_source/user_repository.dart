@@ -56,8 +56,25 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<DataResult<void, String>> saveUserName(int userId, String userName) {
-    // TODO: implement saveUserName
-    throw UnimplementedError();
+  Future<DataResult<UserModel, String>> saveUserName(
+    int userId,
+    String userName,
+  ) async {
+    try {
+      final result = await _dataSource.saveUserName(userId, userName);
+      switch (result) {
+        case Success(:final data):
+          final user = UserModel(
+            id: data.id,
+            firstName: data.firstName,
+            email: data.email,
+          );
+          return Success(user);
+        case Failure(:final error):
+          return Failure('Erro ao salvar nome de usuário: $error');
+      }
+    } catch (e) {
+      return Future.value(Failure('Erro ao salvar nome de usuário: $e'));
+    }
   }
 }

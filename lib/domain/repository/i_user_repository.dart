@@ -11,5 +11,8 @@ abstract interface class IUserRepository {
   Future<DataResult<List<UserModel>, String>> getAllUsers();
   Future<DataResult<UserModel, String>> getUserById(int id);
   Future<DataResult<String, String>> getUserNameById(int userId);
-  Future<DataResult<void, String>> saveUserName(int userId, String userName);
+  Future<DataResult<UserModel, String>> saveUserName(
+    int userId,
+    String userName,
+  );
 }
