@@ -8,13 +8,23 @@ class HttpImpl {
   final Dio _dio;
   HttpImpl(String baseUrl)
     : assert(baseUrl.isNotEmpty, "Base URL cannot be empty"),
-      _dio = Dio(BaseOptions(baseUrl: baseUrl));
+      _dio = Dio(BaseOptions(baseUrl: baseUrl)) {
+    _dio.interceptors.add(
+      LogInterceptor(requestBody: true, responseBody: true),
+    );
+  }
 
   /// Faz uma requisição HTTP com o método fornecido e retorna um [DataResult].
   /// [T] é o tipo esperado da resposta em caso de sucesso.
   /// [String] é o tipo do erro em caso de falha.
   /// [method] é o método HTTP a ser usado na requisição.
   Future<DataResult<T, String>> request<T>(HttpMethod method) async {
+    if (method.headers?.containsKey('Authorization') ?? false) {
+      // Adiciona o cabeçalho Authorization se não estiver presente
+      throw Exception(
+        'O cabeçalho Authorization é gerenciado internamente e não deve ser fornecido externamente por API.',
+      );
+    }
     switch (method) {
       case Get(:final queryParameters):
         try {
