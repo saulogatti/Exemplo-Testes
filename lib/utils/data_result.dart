@@ -16,6 +16,17 @@ sealed class DataResult<S, F> {
     }
     throw StateError('Invalid DataResult state');
   }
+
+  void when({
+    required void Function(Success<S, F>) success,
+    required void Function(Failure<S, F>) failure,
+  }) {
+    if (this is Success<S, F>) {
+      success(this as Success<S, F>);
+    } else if (this is Failure<S, F>) {
+      failure(this as Failure<S, F>);
+    }
+  }
 }
 
 class Failure<S, F> extends DataResult<S, F> {
