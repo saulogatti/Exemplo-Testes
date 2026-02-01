@@ -29,10 +29,18 @@ class UserRepository implements IUserRepository {
   @override
   Future<UserModel?> getUserById(int id) async {
     // Simula uma chamada de API ou consulta ao banco de dados
-    await Future.delayed(Duration(seconds: 1)); // Simula um atraso
-
-    // Retorna um usuário fictício para demonstração
-    return UserModel(id: id, firstName: 'John', email: 'john@example.com');
+    final result = await _dataSource.getUserById(id);
+    return result.fold<UserModel?>(
+      (data) => UserModel(
+        id: data.id,
+        firstName: data.firstName,
+        email: data.email,
+      ),
+      (error) {
+        // Lida com o erro conforme necessário
+        return null;
+      },
+    );
   }
 
   @override

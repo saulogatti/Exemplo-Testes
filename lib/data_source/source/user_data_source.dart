@@ -1,5 +1,7 @@
 import 'package:testenovo/data_source/entry/user_entry/list_users.dart';
-import 'package:testenovo/data_source/remote/api/api.dart';
+import 'package:testenovo/data_source/entry/user_entry/user_entry.dart';
+import 'package:testenovo/data_source/remote/api/user/api_user.dart';
+import 'package:testenovo/data_source/remote/api/user/api_user_list.dart';
 import 'package:testenovo/data_source/remote/http_impl.dart';
 import 'package:testenovo/data_source/source/i_user_data_source.dart';
 import 'package:testenovo/utils/data_result.dart';
@@ -22,14 +24,14 @@ class UserDataSource implements IUserDataSource {
       final result = await api.call(_httpClient);
       return result;
     } catch (e) {
-      return DataResult.failure('Erro ao buscar nomes de usuários: $e');
+      return Failure('Erro ao buscar nomes de usuários: $e');
     }
   }
 
   @override
-  Future<String> getUserNameById(int userId) {
-    // TODO: implement getUserNameById
-    throw UnimplementedError();
+  Future<DataResult<UserEntry, String>> getUserById(int userId) async {
+    final api = ApiUser(id: userId);
+    return await api.call(_httpClient);
   }
 
   @override

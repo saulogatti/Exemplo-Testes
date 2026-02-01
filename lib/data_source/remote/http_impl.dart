@@ -22,16 +22,16 @@ class HttpImpl {
             method.path,
             queryParameters: queryParameters,
           );
-          return DataResult.success(response.data as T);
+          return Success(response.data as T);
         } catch (e) {
-          return DataResult.failure(e.toString());
+          return Failure(e.toString());
         }
       case Post(:final body):
         try {
           final response = await _dio.post<T>(method.path, data: body);
-          return DataResult.success(response.data as T);
+          return Success(response.data as T);
         } catch (e) {
-          return DataResult.failure(e.toString());
+          return Failure(e.toString());
         }
     }
   }
