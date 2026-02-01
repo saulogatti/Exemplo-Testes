@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testenovo/di/app_injection.dart';
 import 'package:testenovo/domain/use_case/user_actions.dart';
 import 'package:testenovo/screen/list_users/bloc/list_users_bloc.dart';
+import 'package:testenovo/screen/list_users/card_add_user.dart';
 import 'package:testenovo/screen/list_users/user_card.dart';
 
 @RoutePage()
@@ -36,6 +37,12 @@ class _ListUsersScreenState extends State<ListUsersScreen> {
             final list = state.users;
             return CustomScrollView(
               slivers: [
+                SliverToBoxAdapter(
+                  child: CardAddUser(
+                    onTap: save,
+                    textNameController: TextEditingController(),
+                  ),
+                ),
                 SliverList.builder(
                   itemCount: list.length,
                   itemBuilder: (context, index) {
@@ -64,5 +71,9 @@ class _ListUsersScreenState extends State<ListUsersScreen> {
   void initState() {
     super.initState();
     context.read<ListUsersBloc>().fetchUsers();
+  }
+
+  void save() {
+    context.read<ListUsersBloc>().save('New User');
   }
 }

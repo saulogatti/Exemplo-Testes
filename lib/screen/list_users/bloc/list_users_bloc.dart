@@ -16,6 +16,17 @@ class ListUsersBloc extends Cubit<ListUsersState> {
         emit(ListUsersError(error));
     }
   }
+
+  Future<void> save(String name) async {
+    emit(ListUsersLoading());
+    final result = await _userActions.save(name);
+    switch (result) {
+      case Success(:final data):
+        await fetchUsers();
+      case Failure(:final error):
+        emit(ListUsersError(error));
+    }
+  }
 }
 
 class ListUsersError extends ListUsersState {
@@ -31,5 +42,10 @@ class ListUsersLoaded extends ListUsersState {
 }
 
 class ListUsersLoading extends ListUsersState {}
+
+class ListUsersSaved extends ListUsersState {
+  final UserModel user;
+  ListUsersSaved(this.user);
+}
 
 sealed class ListUsersState {}

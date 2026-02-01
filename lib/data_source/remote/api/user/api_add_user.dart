@@ -9,7 +9,7 @@ class ApiAddUser extends Api<UserEntry, Map<String, dynamic>> {
   @override
   HttpMethod getMethod() {
     return Post(
-      path: '/add',
+      path: '/users/add',
       body: {'firstName': firstName, 'lastName': lastName},
     );
   }

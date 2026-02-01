@@ -9,4 +9,8 @@ class UserActions {
   Future<DataResult<List<UserModel>, String>> fetchAllUsers() {
     return _repository.getAllUsers();
   }
+
+  Future<DataResult<UserModel, String>> save(String name) {
+    return _repository.saveUserName(12, name);
+  }
 }

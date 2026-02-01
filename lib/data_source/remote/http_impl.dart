@@ -28,7 +28,11 @@ class HttpImpl {
         }
       case Post(:final body):
         try {
-          final response = await _dio.post<T>(method.path, data: body);
+          final response = await _dio.post<T>(
+            method.path,
+            data: body,
+            options: Options(headers: {'Content-Type': 'application/json'}),
+          );
           return Success(response.data as T);
         } catch (e) {
           return Failure(e.toString());
