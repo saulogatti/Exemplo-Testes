@@ -1,0 +1,13 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          explicit_to_json: true
+          # output_dir: lib/data_source/entry
+          # output_name: ${source.path}
+          # input_path: ${source.path}
+          # output_path: ${source.path}
+          # output_name: ${source.path}
+          # output_path: ${source.path}
+     

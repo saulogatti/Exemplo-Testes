@@ -13,5 +13,5 @@ ListUsers _$ListUsersFromJson(Map<String, dynamic> json) => ListUsers(
 );
 
 Map<String, dynamic> _$ListUsersToJson(ListUsers instance) => <String, dynamic>{
-  'users': instance.users,
+  'users': instance.users.map((e) => e.toJson()).toList(),
 };

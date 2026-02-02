@@ -13,4 +13,6 @@ ProductList _$ProductListFromJson(Map<String, dynamic> json) => ProductList(
 );
 
 Map<String, dynamic> _$ProductListToJson(ProductList instance) =>
-    <String, dynamic>{'products': instance.products};
+    <String, dynamic>{
+      'products': instance.products.map((e) => e.toJson()).toList(),
+    };

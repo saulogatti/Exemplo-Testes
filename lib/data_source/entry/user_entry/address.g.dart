@@ -24,6 +24,6 @@ Map<String, dynamic> _$AddressToJson(Address instance) => <String, dynamic>{
   'state': instance.state,
   'stateCode': instance.stateCode,
   'postalCode': instance.postalCode,
-  'coordinates': instance.coordinates,
+  'coordinates': instance.coordinates?.toJson(),
   'country': instance.country,
 };
