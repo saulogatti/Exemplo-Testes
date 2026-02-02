@@ -313,14 +313,14 @@ extension ProductStatePatterns on ProductState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Error value)?  error,TResult Function( _Initial value)?  initial,TResult Function( _Loaded value)?  loaded,TResult Function( _Loading value)?  loading,TResult Function( _ProductLoaded value)?  productLoaded,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Error value)?  error,TResult Function( Initial value)?  initial,TResult Function( Loaded value)?  loaded,TResult Function( Loading value)?  loading,TResult Function( ProductLoaded value)?  productLoaded,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Error() when error != null:
-return error(_that);case _Initial() when initial != null:
-return initial(_that);case _Loaded() when loaded != null:
-return loaded(_that);case _Loading() when loading != null:
-return loading(_that);case _ProductLoaded() when productLoaded != null:
+case Error() when error != null:
+return error(_that);case Initial() when initial != null:
+return initial(_that);case Loaded() when loaded != null:
+return loaded(_that);case Loading() when loading != null:
+return loading(_that);case ProductLoaded() when productLoaded != null:
 return productLoaded(_that);case _:
   return orElse();
 
@@ -339,14 +339,14 @@ return productLoaded(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Error value)  error,required TResult Function( _Initial value)  initial,required TResult Function( _Loaded value)  loaded,required TResult Function( _Loading value)  loading,required TResult Function( _ProductLoaded value)  productLoaded,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Error value)  error,required TResult Function( Initial value)  initial,required TResult Function( Loaded value)  loaded,required TResult Function( Loading value)  loading,required TResult Function( ProductLoaded value)  productLoaded,}){
 final _that = this;
 switch (_that) {
-case _Error():
-return error(_that);case _Initial():
-return initial(_that);case _Loaded():
-return loaded(_that);case _Loading():
-return loading(_that);case _ProductLoaded():
+case Error():
+return error(_that);case Initial():
+return initial(_that);case Loaded():
+return loaded(_that);case Loading():
+return loading(_that);case ProductLoaded():
 return productLoaded(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -361,14 +361,14 @@ return productLoaded(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Error value)?  error,TResult? Function( _Initial value)?  initial,TResult? Function( _Loaded value)?  loaded,TResult? Function( _Loading value)?  loading,TResult? Function( _ProductLoaded value)?  productLoaded,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Error value)?  error,TResult? Function( Initial value)?  initial,TResult? Function( Loaded value)?  loaded,TResult? Function( Loading value)?  loading,TResult? Function( ProductLoaded value)?  productLoaded,}){
 final _that = this;
 switch (_that) {
-case _Error() when error != null:
-return error(_that);case _Initial() when initial != null:
-return initial(_that);case _Loaded() when loaded != null:
-return loaded(_that);case _Loading() when loading != null:
-return loading(_that);case _ProductLoaded() when productLoaded != null:
+case Error() when error != null:
+return error(_that);case Initial() when initial != null:
+return initial(_that);case Loaded() when loaded != null:
+return loaded(_that);case Loading() when loading != null:
+return loading(_that);case ProductLoaded() when productLoaded != null:
 return productLoaded(_that);case _:
   return null;
 
@@ -388,11 +388,11 @@ return productLoaded(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String message)?  error,TResult Function()?  initial,TResult Function( List<ProductModel> products)?  loaded,TResult Function()?  loading,TResult Function( ProductModel product)?  productLoaded,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Error() when error != null:
-return error(_that.message);case _Initial() when initial != null:
-return initial();case _Loaded() when loaded != null:
-return loaded(_that.products);case _Loading() when loading != null:
-return loading();case _ProductLoaded() when productLoaded != null:
+case Error() when error != null:
+return error(_that.message);case Initial() when initial != null:
+return initial();case Loaded() when loaded != null:
+return loaded(_that.products);case Loading() when loading != null:
+return loading();case ProductLoaded() when productLoaded != null:
 return productLoaded(_that.product);case _:
   return orElse();
 
@@ -413,11 +413,11 @@ return productLoaded(_that.product);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String message)  error,required TResult Function()  initial,required TResult Function( List<ProductModel> products)  loaded,required TResult Function()  loading,required TResult Function( ProductModel product)  productLoaded,}) {final _that = this;
 switch (_that) {
-case _Error():
-return error(_that.message);case _Initial():
-return initial();case _Loaded():
-return loaded(_that.products);case _Loading():
-return loading();case _ProductLoaded():
+case Error():
+return error(_that.message);case Initial():
+return initial();case Loaded():
+return loaded(_that.products);case Loading():
+return loading();case ProductLoaded():
 return productLoaded(_that.product);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -434,11 +434,11 @@ return productLoaded(_that.product);}
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String message)?  error,TResult? Function()?  initial,TResult? Function( List<ProductModel> products)?  loaded,TResult? Function()?  loading,TResult? Function( ProductModel product)?  productLoaded,}) {final _that = this;
 switch (_that) {
-case _Error() when error != null:
-return error(_that.message);case _Initial() when initial != null:
-return initial();case _Loaded() when loaded != null:
-return loaded(_that.products);case _Loading() when loading != null:
-return loading();case _ProductLoaded() when productLoaded != null:
+case Error() when error != null:
+return error(_that.message);case Initial() when initial != null:
+return initial();case Loaded() when loaded != null:
+return loaded(_that.products);case Loading() when loading != null:
+return loading();case ProductLoaded() when productLoaded != null:
 return productLoaded(_that.product);case _:
   return null;
 
@@ -450,8 +450,8 @@ return productLoaded(_that.product);case _:
 /// @nodoc
 
 
-class _Error implements ProductState {
-  const _Error({required this.message});
+class Error implements ProductState {
+  const Error({required this.message});
   
 
  final  String message;
@@ -460,13 +460,13 @@ class _Error implements ProductState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ErrorCopyWith<_Error> get copyWith => __$ErrorCopyWithImpl<_Error>(this, _$identity);
+$ErrorCopyWith<Error> get copyWith => _$ErrorCopyWithImpl<Error>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Error&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Error&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -482,8 +482,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$ErrorCopyWith<$Res> implements $ProductStateCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) = __$ErrorCopyWithImpl;
+abstract mixin class $ErrorCopyWith<$Res> implements $ProductStateCopyWith<$Res> {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) _then) = _$ErrorCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -494,17 +494,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(this._self, this._then);
+class _$ErrorCopyWithImpl<$Res>
+    implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(this._self, this._then);
 
-  final _Error _self;
-  final $Res Function(_Error) _then;
+  final Error _self;
+  final $Res Function(Error) _then;
 
 /// Create a copy of ProductState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(_Error(
+  return _then(Error(
 message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -516,8 +516,8 @@ as String,
 /// @nodoc
 
 
-class _Initial implements ProductState {
-  const _Initial();
+class Initial implements ProductState {
+  const Initial();
   
 
 
@@ -527,7 +527,7 @@ class _Initial implements ProductState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial);
 }
 
 
@@ -548,8 +548,8 @@ String toString() {
 /// @nodoc
 
 
-class _Loaded implements ProductState {
-  const _Loaded({required final  List<ProductModel> products}): _products = products;
+class Loaded implements ProductState {
+  const Loaded({required final  List<ProductModel> products}): _products = products;
   
 
  final  List<ProductModel> _products;
@@ -564,13 +564,13 @@ class _Loaded implements ProductState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LoadedCopyWith<_Loaded> get copyWith => __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+$LoadedCopyWith<Loaded> get copyWith => _$LoadedCopyWithImpl<Loaded>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loaded&&const DeepCollectionEquality().equals(other._products, _products));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loaded&&const DeepCollectionEquality().equals(other._products, _products));
 }
 
 
@@ -586,8 +586,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$LoadedCopyWith<$Res> implements $ProductStateCopyWith<$Res> {
-  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) _then) = __$LoadedCopyWithImpl;
+abstract mixin class $LoadedCopyWith<$Res> implements $ProductStateCopyWith<$Res> {
+  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) _then) = _$LoadedCopyWithImpl;
 @useResult
 $Res call({
  List<ProductModel> products
@@ -598,17 +598,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res>
-    implements _$LoadedCopyWith<$Res> {
-  __$LoadedCopyWithImpl(this._self, this._then);
+class _$LoadedCopyWithImpl<$Res>
+    implements $LoadedCopyWith<$Res> {
+  _$LoadedCopyWithImpl(this._self, this._then);
 
-  final _Loaded _self;
-  final $Res Function(_Loaded) _then;
+  final Loaded _self;
+  final $Res Function(Loaded) _then;
 
 /// Create a copy of ProductState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? products = null,}) {
-  return _then(_Loaded(
+  return _then(Loaded(
 products: null == products ? _self._products : products // ignore: cast_nullable_to_non_nullable
 as List<ProductModel>,
   ));
@@ -620,8 +620,8 @@ as List<ProductModel>,
 /// @nodoc
 
 
-class _Loading implements ProductState {
-  const _Loading();
+class Loading implements ProductState {
+  const Loading();
   
 
 
@@ -631,7 +631,7 @@ class _Loading implements ProductState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loading);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading);
 }
 
 
@@ -652,8 +652,8 @@ String toString() {
 /// @nodoc
 
 
-class _ProductLoaded implements ProductState {
-  const _ProductLoaded({required this.product});
+class ProductLoaded implements ProductState {
+  const ProductLoaded({required this.product});
   
 
  final  ProductModel product;
@@ -662,13 +662,13 @@ class _ProductLoaded implements ProductState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ProductLoadedCopyWith<_ProductLoaded> get copyWith => __$ProductLoadedCopyWithImpl<_ProductLoaded>(this, _$identity);
+$ProductLoadedCopyWith<ProductLoaded> get copyWith => _$ProductLoadedCopyWithImpl<ProductLoaded>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductLoaded&&(identical(other.product, product) || other.product == product));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductLoaded&&(identical(other.product, product) || other.product == product));
 }
 
 
@@ -684,8 +684,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$ProductLoadedCopyWith<$Res> implements $ProductStateCopyWith<$Res> {
-  factory _$ProductLoadedCopyWith(_ProductLoaded value, $Res Function(_ProductLoaded) _then) = __$ProductLoadedCopyWithImpl;
+abstract mixin class $ProductLoadedCopyWith<$Res> implements $ProductStateCopyWith<$Res> {
+  factory $ProductLoadedCopyWith(ProductLoaded value, $Res Function(ProductLoaded) _then) = _$ProductLoadedCopyWithImpl;
 @useResult
 $Res call({
  ProductModel product
@@ -696,17 +696,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$ProductLoadedCopyWithImpl<$Res>
-    implements _$ProductLoadedCopyWith<$Res> {
-  __$ProductLoadedCopyWithImpl(this._self, this._then);
+class _$ProductLoadedCopyWithImpl<$Res>
+    implements $ProductLoadedCopyWith<$Res> {
+  _$ProductLoadedCopyWithImpl(this._self, this._then);
 
-  final _ProductLoaded _self;
-  final $Res Function(_ProductLoaded) _then;
+  final ProductLoaded _self;
+  final $Res Function(ProductLoaded) _then;
 
 /// Create a copy of ProductState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? product = null,}) {
-  return _then(_ProductLoaded(
+  return _then(ProductLoaded(
 product: null == product ? _self.product : product // ignore: cast_nullable_to_non_nullable
 as ProductModel,
   ));

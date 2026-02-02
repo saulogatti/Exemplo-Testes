@@ -11,11 +11,11 @@ sealed class ProductEvent with _$ProductEvent {
 
 @freezed
 sealed class ProductState with _$ProductState {
-  const factory ProductState.error({required String message}) = _Error;
-  const factory ProductState.initial() = _Initial;
+  const factory ProductState.error({required String message}) = Error;
+  const factory ProductState.initial() = Initial;
   const factory ProductState.loaded({required List<ProductModel> products}) =
-      _Loaded;
-  const factory ProductState.loading() = _Loading;
+      Loaded;
+  const factory ProductState.loading() = Loading;
   const factory ProductState.productLoaded({required ProductModel product}) =
-      _ProductLoaded;
+      ProductLoaded;
 }
