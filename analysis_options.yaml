@@ -11,5 +11,10 @@ analyzer:
   errors:
     invalid_override_of_non_virtual_member: error
     unused_import: warning
+    override_on_non_overriding_member: error
+    deprecated_member_use: warning
+    missing_override_of_must_be_overridden: error
+    unnecessary_null_in_if_null_operators: warning
+    return_of_invalid_type: error
 linter:
   rules:

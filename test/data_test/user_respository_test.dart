@@ -22,11 +22,11 @@ void main() {
       expect(dataResult, isA<Success<List<UserModel>, String>>());
       dataResult.when(
         success: (data) {
-          expect(data.data, isA<List<UserModel>>());
-          expect(data.data.length, greaterThan(0));
+          expect(data, isA<List<UserModel>>());
+          expect(data.length, greaterThan(0));
         },
         failure: (error) {
-          fail('Esperava sucesso, mas recebeu falha: ${error.error}');
+          fail('Esperava sucesso, mas recebeu falha: $error');
         },
       );
     });
@@ -35,10 +35,10 @@ void main() {
       expect(result, isA<DataResult<UserModel, String>>());
       result.when(
         success: (data) {
-          expect(data.data, isA<UserModel>());
+          expect(data, isA<UserModel>());
         },
         failure: (error) {
-          fail('Esperava sucesso ao salvar, mas recebeu falha: ${error.error}');
+          fail('Esperava sucesso ao salvar, mas recebeu falha: $error');
         },
       );
     });
@@ -50,10 +50,10 @@ void main() {
       expect(result, isA<DataResult<UserModel, String>>());
       result.when(
         success: (data) {
-          fail('Esperava falha ao salvar, mas recebeu sucesso: ${data.data}');
+          fail('Esperava falha ao salvar, mas recebeu sucesso: $data');
         },
         failure: (error) {
-          expect(error.error, isA<String>());
+          expect(error, isA<String>());
         },
       );
     });
@@ -70,8 +70,8 @@ void main() {
           fail('Esperava falha, mas recebeu sucesso: $data');
         },
         failure: (error) {
-          expect(error.error, isA<String>());
-          expect(error.error, contains('Erro ao buscar usuários'));
+          expect(error, isA<String>());
+          expect(error, contains('Erro ao buscar usuários'));
         },
       );
     });

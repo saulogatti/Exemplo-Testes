@@ -50,12 +50,6 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<DataResult<String, String>> getUserNameById(int userId) {
-    // TODO: implement getUserNameById
-    throw UnimplementedError();
-  }
-
-  @override
   Future<DataResult<UserModel, String>> saveUserName(
     int userId,
     String userName,

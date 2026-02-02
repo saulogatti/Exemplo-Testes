@@ -6,6 +6,7 @@ part 'product_state.freezed.dart';
 @freezed
 sealed class ProductEvent with _$ProductEvent {
   const factory ProductEvent.loadProducts() = LoadProducts;
+  const factory ProductEvent.loadProductById(int productId) =  LoadProductById;
 }
 
 @freezed
@@ -15,4 +16,6 @@ sealed class ProductState with _$ProductState {
   const factory ProductState.loaded({required List<ProductModel> products}) =
       _Loaded;
   const factory ProductState.loading() = _Loading;
+  const factory ProductState.productLoaded({required ProductModel product}) =
+      _ProductLoaded;
 }

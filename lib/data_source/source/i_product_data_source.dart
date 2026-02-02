@@ -3,4 +3,5 @@ import 'package:testenovo/utils/data_result.dart';
 
 abstract interface class IProductDataSource {
   Future<DataResult<ProductEntry, String>> fetchProductById(int productId);
+  Future<DataResult<List<ProductEntry>, String>> fetchAllProducts();
 }

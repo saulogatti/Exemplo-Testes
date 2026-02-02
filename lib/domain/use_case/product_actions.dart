@@ -5,6 +5,10 @@ import 'package:testenovo/utils/data_result.dart';
 class ProductActions {
   final IProductRepository _repository;
   ProductActions(this._repository);
+  Future<DataResult<List<ProductModel>, String>> fetchAllProducts() {
+    return _repository.getAllProducts();
+  }
+
   Future<DataResult<ProductModel, String>> fetchProductById(int productId) {
     return _repository.getProductById(productId);
   }

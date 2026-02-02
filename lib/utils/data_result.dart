@@ -18,13 +18,13 @@ sealed class DataResult<S, F> {
   }
 
   void when({
-    required void Function(Success<S, F>) success,
-    required void Function(Failure<S, F>) failure,
+    required void Function(S data) success,
+    required void Function(F error) failure,
   }) {
     if (this is Success<S, F>) {
-      success(this as Success<S, F>);
+      success((this as Success<S, F>).data);
     } else if (this is Failure<S, F>) {
-      failure(this as Failure<S, F>);
+      failure((this as Failure<S, F>).error);
     }
   }
 }
