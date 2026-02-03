@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:testenovo/data_source/entry/login_entry/login_entry.dart';
-import 'package:testenovo/data_source/remote/api/product/auth/login_api.dart';
+import 'package:testenovo/data_source/remote/api/auth/login_api.dart';
 import 'package:testenovo/data_source/remote/http_impl.dart';
 import 'package:testenovo/utils/data_result.dart';
 
