@@ -14,19 +14,20 @@ dependencies:
   auto_route: ^11.1.0
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.1
-  get_it: 9.2.0
-  json_annotation: ^4.10.0
-  dio: ^5.9.1
+  get_it: ^9.2.1
+  json_annotation: ^4.11.0
+  dio: ^5.9.2
   meta: ^1.17.0
-  freezed: ^3.2.4
+  freezed: ^3.2.5
   freezed_annotation: ^3.1.0
+  flutter_ai_toolkit: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  build_runner: 2.10.5
-  auto_route_generator: ^10.4.0
-  json_serializable: ^6.12.0
+  build_runner: ^2.12.2
+  auto_route_generator: ^10.5.0
+  json_serializable: ^6.13.0
 
 flutter:
   uses-material-design: true
