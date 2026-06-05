@@ -14,14 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: [UsersListRoute(), ProductListRoute()],
+      routes: [UsersListRoute(), ProductListRoute(), TreeSectionWidgetRoute()],
       appBarBuilder: (context, tabsRouter) {
         final stringTitle = tabsRouter.current.title.call(context);
-        return AppBar(
-          title: Text(stringTitle),
-          shadowColor: Colors.grey,
-          elevation: 5,
-        );
+        return AppBar(title: Text(stringTitle), shadowColor: Colors.grey, elevation: 5);
       },
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
@@ -31,10 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Users'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              label: 'Products',
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Products'),
+            BottomNavigationBarItem(icon: Icon(Icons.traffic), label: 'Tree Section'),
           ],
         );
       },

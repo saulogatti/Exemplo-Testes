@@ -13,7 +13,6 @@ void main() {
     expect(result, isA<DataResult<LoginEntry, String>>());
     switch (result) {
       case Success(:final data):
-        print(data.toJson());
         expect(data, isA<LoginEntry>());
       case Failure(:final error):
         expect(error, isA<String>());

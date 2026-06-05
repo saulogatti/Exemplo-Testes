@@ -70,3 +70,7 @@ dart run build_runner build --delete-conflicting-outputs
 - flutter_bloc
 - auto_route
 - dio
+
+
+Os dados são obtidos de https://dummyjson.com/ para simular uma API real.
+Para mais detalhes, consulte o repositório oficial: https://github.com/Ovi/DummyJSON.
